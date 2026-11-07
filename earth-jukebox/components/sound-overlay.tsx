@@ -1,12 +1,12 @@
 'use client';
 import {useEffect,useRef} from 'react';
 import {bandLat,type EarthSonifier} from '../lib/sonify';
-const SIZE=600,CENTER=SIZE/2,RADIUS=275,SPARK_LIFE=1100,RAD=Math.PI/180;
+const SIZE=600,SCALE=2,CENTER=SIZE/2,RADIUS=275,SPARK_LIFE=1100,RAD=Math.PI/180;
 // Draws what is being heard: the scan line, each band's loudness, chimes and the sound's spectrum.
 export default function SoundOverlay({sound}:{sound:EarthSonifier}){
  const canvas=useRef<HTMLCanvasElement>(null);
  useEffect(()=>{
-  const node=canvas.current!,ctx=node.getContext('2d')!,orbit=node.closest<HTMLElement>('.hero-orbit'),calm=matchMedia('(prefers-reduced-motion: reduce)').matches;let frame=0;
+  const node=canvas.current!,ctx=node.getContext('2d')!,orbit=node.closest<HTMLElement>('.hero-orbit'),calm=matchMedia('(prefers-reduced-motion: reduce)').matches;let frame=0;ctx.setTransform(SCALE,0,0,SCALE,0,0);
   // The Earth is cropped by the hero, so the scan follows the meridian through the middle of what is visible.
   function aim(){if(!orbit)return;const box=node.getBoundingClientRect(),crop=orbit.getBoundingClientRect(),radius=box.width*RADIUS/SIZE,center=box.left+box.width/2,middle=(Math.max(crop.left,center-radius)+Math.min(crop.right,center+radius))/2;sound.offset=Math.asin(Math.max(-.9,Math.min(.9,(middle-center)/radius)))/RAD}
   function project(lat:number){const phi=lat*RAD,theta=sound.offset*RAD,tilt=sound.tilt*RAD,north=Math.sin(phi),depth=Math.cos(phi)*Math.cos(theta);return{x:CENTER+RADIUS*Math.cos(phi)*Math.sin(theta),y:CENTER-RADIUS*(north*Math.cos(tilt)-depth*Math.sin(tilt)),front:north*Math.sin(tilt)+depth*Math.cos(tilt)>.05}}
@@ -23,5 +23,5 @@ export default function SoundOverlay({sound}:{sound:EarthSonifier}){
   frame=requestAnimationFrame(draw);
   return()=>{cancelAnimationFrame(frame);orbit?.style.removeProperty('--pulse')};
  },[sound]);
- return <canvas ref={canvas} className="sound-overlay" width={SIZE} height={SIZE} aria-hidden="true"/>;
+ return <canvas ref={canvas} className="sound-overlay" width={SIZE*SCALE} height={SIZE*SCALE} aria-hidden="true"/>;
 }
