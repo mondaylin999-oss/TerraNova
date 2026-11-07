@@ -1,0 +1,97 @@
+/* Phone and small-tablet layouts. Keep information beside the cropped globe. */
+@media (max-width: 760px) {
+  .terra-page { width: 100%; overflow-x: clip; }
+  .terra-header { height: 72px; padding: 8px 12px; gap: 10px; }
+  .header-brands { gap: 8px; min-width: 0; }
+  .space-apps-logo { width: 100px; flex-shrink: 0; }
+  .header-divider { height: 32px; }
+  .terra-leaf { font-size: 20px; }
+  .header-brands > strong { font-size: 18px; white-space: nowrap; }
+  .settings-wrap { flex-shrink: 0; }
+  .settings-button { min-height: 44px; min-width: 44px; padding: 8px 12px; }
+  .settings-panel { right: 0; width: min(330px, calc(100vw - 24px)); }
+  .settings-heading button, .sound-switch { min-height: 44px; min-width: 44px; }
+  .volume-setting input { height: 32px; margin: 0; }
+
+  .terra-page .terra-hero,
+  .terra-page .terra-hero.expanded-topic {
+    width: 100%; max-width: none; margin: 0;
+    display: grid; grid-template-columns: minmax(0, 1fr) 32%;
+    gap: 16px 10px; align-items: start;
+    padding: 30px 0 92px 16px !important;
+    min-height: calc(100svh - 72px);
+  }
+  .terra-page .terra-hero.expanded-topic {
+    grid-template-columns: minmax(0, 1fr) 43%;
+    padding-top: 74px !important;
+  }
+  .terra-page .terra-hero .hero-copy {
+    grid-column: 1; grid-row: 1; min-width: 0; max-width: 100%; margin: 0; z-index: 2;
+  }
+  .terra-page .hero-copy h1 {
+    font-size: clamp(30px, 8.4vw, 54px); letter-spacing: -1.5px; overflow-wrap: anywhere;
+  }
+  .terra-page .expanded-topic .hero-copy h1 { font-size: clamp(30px, 7.5vw, 46px); }
+  .terra-page .hero-copy h2 { font-size: clamp(16px, 4.5vw, 25px); line-height: 1.35; }
+  .hero-rule { width: 70px; height: 3px; }
+  .terra-page .hero-copy > p { font-size: 14px; line-height: 1.6; margin: 18px 0; }
+  .terra-page .hero-topics { grid-template-columns: 1fr; gap: 10px; }
+  .terra-page .hero-topic { min-height: 56px; height: auto; padding: 12px; gap: 10px; }
+  .terra-page .hero-topic strong { font-size: 14px; }
+  .topic-icon { font-size: 24px; }
+  .topic-arrow { font-size: 22px; }
+  .listen-button { min-height: 44px; max-width: 100%; padding: 10px 12px; white-space: normal; }
+  .sound-legend { padding: 12px; }
+  .sound-legend ul { grid-template-columns: minmax(0, 1fr); }
+  .sound-legend p { overflow-wrap: anywhere; }
+
+  .terra-page .terra-hero .hero-orbit {
+    grid-column: 2; grid-row: 1 / span 4; position: relative;
+    width: 100%; height: 100%; min-height: 360px; min-width: 0;
+    align-self: stretch; overflow: hidden;
+  }
+  .terra-page .terra-hero:not(.expanded-topic) .hero-orbit .globe-stage,
+  .terra-page .terra-hero.expanded-topic .hero-orbit .globe-stage {
+    position: absolute; top: 28px; left: 0; transform: none;
+    width: 58vw !important; max-width: none !important;
+    padding: 0; margin: 0;
+  }
+  .terra-page .terra-hero.expanded-topic .hero-orbit .globe-stage { width: 64vw !important; }
+  .terra-page .terra-hero:not(.expanded-topic) .hero-orbit .globe-stage canvas,
+  .terra-page .terra-hero.expanded-topic .hero-orbit .globe-stage canvas {
+    width: 100% !important; max-width: none !important; height: auto;
+  }
+  .hero-orbit .globe-stage > small { text-align: left; max-width: 28vw; font-size: 9px; }
+  .hero-orbit .orbit-ring { width: 55vw; top: 52px; left: 0; }
+  .hero-orbit .orbit-two { width: 62vw; }
+  .hero-orbit .orbit-satellite { top: 0; left: 12px; font-size: 22px; }
+  .hero-orbit .globe-loading { width: 100%; height: 270px; min-height: 0; font-size: 48px; }
+  .hero-orbit .globe-loading p { font-size: 11px; padding: 0 8px; text-align: center; }
+
+  .terra-page .terra-hero .selected-details,
+  .terra-page .terra-hero .world-highlights {
+    grid-column: 1; width: 100%; min-width: 0; margin: 0; justify-self: stretch;
+  }
+  .terra-page .terra-hero .selected-details { grid-row: 2; padding: 16px 0; }
+  .terra-page .terra-hero .world-highlights { grid-row: 2; padding: 14px 12px; }
+  .terra-page .terra-hero.expanded-topic .world-highlights { grid-row: 3; }
+  .selected-details h2 { font-size: 23px; overflow-wrap: anywhere; }
+  .selected-details p { font-size: 13px; }
+  .selected-details small { display: block; line-height: 1.6; }
+  .highlight-heading { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .highlight-metrics { grid-template-columns: 1fr; gap: 10px; }
+  .highlight-metrics > div { border: 0; border-bottom: 1px solid #19505a; padding: 0 0 10px; }
+  .highlight-metrics strong { font-size: 17px; }
+  .earth-color-guide p { font-size: 12px; }
+  .highlight-news { min-height: 44px; overflow-wrap: anywhere; }
+  .terra-page .topic-back { top: 12px; left: 16px; min-height: 44px; }
+  .terra-page .top-news-button { bottom: 18px; min-height: 48px; padding: 10px 24px; font-size: 16px; }
+}
+
+@media (max-width: 420px) {
+  .settings-button > span {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+  }
+  .settings-button { padding: 8px; }
+}
