@@ -131,3 +131,21 @@ The portable build runs Vinext directly without a host `timeout` command. The ma
 
 - [vinext Documentation](https://github.com/cloudflare/vinext)
 - [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+
+## NASA source explorer
+
+The homepage includes searchable Weather, Ocean, Forest, and Air source guides.
+The catalog is maintained in `lib/earth-sources.ts`; the interface is in
+`components/source-explorer.tsx`.
+
+- Weather: GPM IMERG, MERRA-2, NASA POWER.
+- Ocean: MODIS and VIIRS surface temperature; PACE ocean color and ecosystems.
+- Forest: MODIS vegetation/land cover and Landsat Collection 2 surface reflectance.
+- Air: MODIS aerosols, MAIAC MCD19A2, OMI NO2, and TEMPO.
+
+The guides provide documentation and Earthdata discovery links, plus a dated
+Worldview link. They do not fetch scientific granules or synthesize measurements.
+The sound player continues to use the existing saved 2024 POWER monthly JSON
+files for Yangon and Mandalay. Further numeric integrations require collection
+selection, spatial/temporal subsetting, and quality screening before sonification.
+TEMPO covers North America; PACE provides ocean-color context rather than SST.
