@@ -149,3 +149,16 @@ The sound player continues to use the existing saved 2024 POWER monthly JSON
 files for Yangon and Mandalay. Further numeric integrations require collection
 selection, spatial/temporal subsetting, and quality screening before sonification.
 TEMPO covers North America; PACE provides ocean-color context rather than SST.
+
+## Live dashboard
+
+The homepage now fetches NASA GIBS imagery and its published availability dates,
+NASA POWER daily measurements at the selected globe center, and NASA RSS news.
+`/api/earth` reads only fixed official endpoints; `/api/map` proxies allowlisted
+GIBS layers. Feeds refresh every five minutes with server-side caching and
+explicit unavailable states. Imagery latency depends on the selected product;
+these are latest available satellite/daily products, not instantaneous sensors.
+Forest, ocean, and air conditions use georeferenced NASA imagery and color scales;
+point numeric weather values come from POWER. No surface AQI is inferred from AOD.
+The sponsor slides are labeled demo placements. Ambient tones are temporary,
+opt-in compositions and are independent of the measured environmental values.
