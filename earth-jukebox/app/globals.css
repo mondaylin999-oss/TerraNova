@@ -36,3 +36,5 @@
 @media(min-width:561px){.terra-hero{width:100%;max-width:none;margin-left:0;margin-right:0;padding-right:0!important}.terra-hero.expanded-topic{padding-right:0!important}.hero-orbit{width:100%}}
 
 @media(min-width:561px){.terra-hero:not(.expanded-topic){align-items:start;min-height:calc(100vh - 82px);padding-top:clamp(32px,7vh,68px)}.terra-hero:not(.expanded-topic) .hero-orbit .globe-stage,.terra-hero:not(.expanded-topic) .hero-orbit .globe-stage canvas{width:55vw!important;max-width:none!important}.terra-hero.expanded-topic .hero-orbit .globe-stage,.terra-hero.expanded-topic .hero-orbit .globe-stage canvas{width:82vw!important;max-width:none!important}}
+
+@media(min-width:561px){.expanded-topic .hero-copy{grid-column:1;grid-row:1}.expanded-topic .hero-orbit{grid-column:2;grid-row:1/span 2;align-self:start}.expanded-topic .selected-details{grid-column:1;grid-row:2;justify-self:stretch;width:100%;margin:24px 0 40px;padding:20px 0;border-top:1px solid #126171}.expanded-topic .world-highlights{grid-column:2;grid-row:3;justify-self:center}}
